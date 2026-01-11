@@ -1,0 +1,124 @@
+---
+title: '個人ブログを支える技術'
+description: 'Astro 5、Panda CSS、動的OGP画像生成など、このブログを構築している技術スタックについて紹介します。'
+date: '2026-01-02'
+tags:
+  - astro
+  - blog
+  - tech-stack
+---
+
+## 個人ブログを始めました
+
+これまで Zenn などのプラットフォームで記事を書いてきましたが、自分のドメインで自由に発信できる場所が欲しくなり、このブログを立ち上げました。
+
+せっかくなので、このブログを支える技術スタックについて紹介します。
+
+## 全体構成
+
+このブログは以下の技術で構築されています：
+
+| カテゴリ | 技術 |
+|---------|------|
+| フレームワーク | Astro 5 |
+| スタイリング | Panda CSS |
+| マークダウン | zenn-markdown-html |
+| OGP画像生成 | satori + sharp |
+| ホスティング | Netlify |
+| 言語 | TypeScript |
+
+## Astro 5
+
+静的サイトジェネレーターとして [Astro](https://astro.build) を採用しています。
+
+Astro を選んだ理由は以下のとおりです：
+
+- **ゼロJSがデフォルト** - クライアントに送信されるJavaScriptを最小限に抑えられる
+- **Content Collections** - Markdown/MDXファイルを型安全に管理できる
+- **Islands Architecture** - 必要な部分だけインタラクティブにできる
+
+### Content Collections
+
+ブログ記事は `src/content/blog/` ディレクトリで管理しています。Zodスキーマで frontmatter を型チェックしているため、必須フィールドの漏れや型の不一致をビルド時に検出できます。
+
+```typescript
+const blog = defineCollection({
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      published: z.boolean().default(false),
+      published_at: z.coerce.date(),
+      heroImage: image().optional(),
+      tags: z.array(z.string()).default([]),
+    }),
+});
+```
+
+## Panda CSS
+
+スタイリングには [Panda CSS](https://panda-css.com) を採用しています。
+
+Panda CSS は Zero-runtime の CSS-in-JS ライブラリで、ビルド時にCSSを生成するためランタイムコストがありません。
+
+### セマンティックトークンによるダークモード
+
+ダークモードは Panda CSS のセマンティックトークンで実装しています。
+
+```typescript
+semanticTokens: {
+  colors: {
+    text: {
+      value: { base: "#222839", _dark: "#d2d7e1" },
+    },
+    bg: {
+      value: { base: "#fff", _dark: "#1a1a2e" },
+    },
+  },
+},
+```
+
+`[data-theme=dark]` 属性をルート要素に付与することで、テーマが自動的に切り替わります。
+
+## OGP画像の動的生成
+
+OGP画像は **satori** と **sharp** を使ってビルド時に動的生成しています。
+
+```
+/og/[...slug].png.ts → 各記事のOGP画像を生成
+```
+
+外部サービスに依存せず、記事タイトルを含んだOGP画像を自動生成できるのが利点です。
+
+### 仕組み
+
+1. **satori** - React-likeな構文でSVGを生成
+2. **sharp** - SVGをPNG画像に変換
+
+日本語フォント（Noto Sans JP）を埋め込むことで、日本語タイトルも正しく表示されます。
+
+## Zenn記法のサポート
+
+マークダウンのパースには `zenn-markdown-html` を使用しています。
+
+これにより、Zennで使い慣れた記法（メッセージブロック、アコーディオンなど）をそのまま使えます。
+
+## Netlify
+
+ホスティングは Netlify を使用しています。
+
+- **自動デプロイ** - GitHubへのプッシュで自動ビルド・デプロイ
+- **プレビューデプロイ** - プルリクエストごとにプレビュー環境を作成
+
+`@astrojs/netlify` アダプターを使用することで、SSRやサーバーサイドの機能も利用可能です。
+
+## その他の機能
+
+- **RSS フィード** - `/rss.xml` で配信
+- **サイトマップ** - `@astrojs/sitemap` で自動生成
+- **oxfmt** - コードフォーマッター
+
+## まとめ
+
+今年はこのブログを通じて、技術的な知見や経験を発信していきたいと思います。今後ともよろしくお願いいたします！
