@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-og-image',
     '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
   ],
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
@@ -22,6 +23,12 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'system',
     fallback: 'light',
+  },
+  site: {
+    url: 'https://nao-dev.netlify.app/',
+    name: "Naoki's Blog",
+    description: 'Welcome to my personal blog about web development and technology.',
+    defaultLocale: 'en',
   },
   vite: {
     plugins: [tailwindcss()],
