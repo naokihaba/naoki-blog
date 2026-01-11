@@ -30,6 +30,11 @@ export default defineNuxtConfig({
     description: 'Welcome to my personal blog about web development and technology.',
     defaultLocale: 'en',
   },
+  ogImage: {
+    fonts: [
+      'Noto+Sans+JP:500',
+    ],
+  },
   vite: {
     plugins: [tailwindcss()],
     vue: {

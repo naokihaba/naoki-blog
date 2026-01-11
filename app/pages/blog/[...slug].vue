@@ -22,6 +22,12 @@ useSeoMeta({
   description: post.value.description,
 })
 
+defineOgImageComponent('NuxtSeo', {
+  title: post.value.title,
+  theme: '#6366f1',
+  colorMode: 'dark',
+})
+
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('ja-JP', {
     year: 'numeric',
@@ -32,17 +38,20 @@ function formatDate(dateString: string): string {
 </script>
 
 <template>
-  <article class="mx-auto px-4 py-16" style="max-width: 48rem;">
+  <article class="mx-auto px-4 py-16" style="max-width: 56rem;">
     <header class="mb-16 text-center animate-fade-in">
-      <time
-        v-if="post?.date"
-        class="text-sm font-semibold uppercase tracking-wider"
-        style="color: var(--color-accent);"
-      >
-        {{ formatDate(post.date) }}
-      </time>
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6" style="background-color: var(--color-surface-elevated);">
+        <Icon name="lucide:calendar" class="size-4" style="color: var(--color-accent);" />
+        <time
+          v-if="post?.date"
+          class="text-sm font-semibold"
+          style="color: var(--color-text-secondary);"
+        >
+          {{ formatDate(post.date) }}
+        </time>
+      </div>
 
-      <h1 class="gradient-text mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
+      <h1 class="gradient-text text-5xl font-extrabold tracking-tight sm:text-6xl leading-tight">
         {{ post?.title }}
       </h1>
 
@@ -54,31 +63,45 @@ function formatDate(dateString: string): string {
         {{ post.description }}
       </p>
 
-      <div v-if="post?.tags?.length" class="mt-6 flex flex-wrap justify-center gap-3">
+      <div v-if="post?.tags?.length" class="mt-8 flex flex-wrap justify-center gap-2">
         <span
           v-for="tag in post.tags"
           :key="tag"
-          class="rounded-full px-4 py-2 text-sm font-medium transition-transform hover:scale-110"
-          style="background-color: var(--color-surface-secondary); color: var(--color-text-secondary);"
+          class="rounded-lg px-4 py-2 text-sm font-semibold transition-all hover:scale-105 hover:shadow-md"
+          style="background: linear-gradient(135deg, var(--color-gradient-from), var(--color-gradient-to)); color: white;"
         >
-          {{ tag }}
+          #{{ tag }}
         </span>
       </div>
+
+      <div class="mt-8 h-px" style="background: linear-gradient(to right, transparent, var(--color-border), transparent);"></div>
     </header>
 
     <div class="prose mx-auto">
       <ContentRenderer v-if="post" :value="post" />
     </div>
 
-    <footer class="mt-16 border-t pt-8" style="border-color: var(--color-border);">
-      <NuxtLink
-        to="/"
-        class="inline-flex items-center gap-2 font-medium transition-all hover:gap-3"
-        style="color: var(--color-accent);"
-      >
-        <Icon name="lucide:arrow-left" class="size-5" />
-        Back to home
-      </NuxtLink>
+    <footer class="mt-20 pt-8" style="border-top: 2px solid var(--color-border);">
+      <div class="flex items-center justify-between">
+        <NuxtLink
+          to="/"
+          class="inline-flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-all hover:gap-3 hover:bg-opacity-10"
+          style="color: var(--color-accent); background-color: rgba(99, 102, 241, 0.1);"
+        >
+          <Icon name="lucide:arrow-left" class="size-5" />
+          <span>Back to home</span>
+        </NuxtLink>
+
+        <button
+          @click="scrollTo({ top: 0, behavior: 'smooth' })"
+          class="inline-flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-all hover:scale-105"
+          style="color: var(--color-accent); background-color: rgba(99, 102, 241, 0.1);"
+          title="Scroll to top"
+        >
+          <span>Top</span>
+          <Icon name="lucide:arrow-up" class="size-5" />
+        </button>
+      </div>
     </footer>
   </article>
 </template>

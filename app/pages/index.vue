@@ -24,7 +24,7 @@ useSeoMeta({
       </p>
     </section>
 
-    <section v-if="allPosts.length" class="mx-auto" style="max-width: 48rem;">
+    <section v-if="allPosts.length" class="mx-auto" style="max-width: 56rem;">
       <div class="mb-8 flex items-center justify-between">
         <h2 class="text-2xl font-bold" style="color: var(--color-text-primary); letter-spacing: -0.025em;">
           Blog Posts
