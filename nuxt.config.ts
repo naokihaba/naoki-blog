@@ -23,6 +23,12 @@ export default defineNuxtConfig({
   experimental: {
     typedPages: true,
   },
+  // https://nuxt.com/modules/color-mode
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light',
+  },
   vite: {
     plugins: [tailwindcss()],
     vue: {
