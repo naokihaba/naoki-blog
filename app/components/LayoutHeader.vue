@@ -13,7 +13,7 @@ function toggleColorMode() {
         to="/"
         class="gradient-text text-2xl font-bold transition-all hover:scale-105"
       >
-        Naoki's Blog
+        Naoki Dev
       </NuxtLink>
 
       <nav class="flex items-center gap-6">

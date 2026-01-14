@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   },
   site: {
     url: 'https://nao-dev.netlify.app/',
-    name: "Naoki's Blog",
+    name: 'Naoki Dev',
     description: 'Welcome to my personal blog about web development and technology.',
     defaultLocale: 'en',
   },

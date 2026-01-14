@@ -6,14 +6,38 @@
   --color-surface-elevated: #f1f5f9;
   --color-text-primary: #1e293b;
   --color-text-secondary: #64748b;
-  --color-accent: #6366f1;
-  --color-accent-hover: #4f46e5;
+  --color-accent: #10b981;
+  --color-accent-hover: #059669;
   --color-border: #e2e8f0;
-  --color-gradient-from: #6366f1;
-  --color-gradient-to: #a855f7;
+  --color-gradient-from: #10b981;
+  --color-gradient-to: #14b8a6;
   --color-code-bg: #f1f5f9;
 
   --container-max: 1400px;
+}
+
+body {
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Noto Sans JP",
+    sans-serif;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-break: strict;
+  text-autospace: normal;
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: outside;
 }
 
 .dark {
@@ -22,11 +46,11 @@
   --color-surface-elevated: #334155;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #94a3b8;
-  --color-accent: #818cf8;
-  --color-accent-hover: #a5b4fc;
+  --color-accent: #34d399;
+  --color-accent-hover: #6ee7b7;
   --color-border: #334155;
-  --color-gradient-from: #818cf8;
-  --color-gradient-to: #c084fc;
+  --color-gradient-from: #34d399;
+  --color-gradient-to: #2dd4bf;
   --color-code-bg: #1e293b;
 }
 
@@ -156,6 +180,14 @@
 .prose ul, .prose ol {
   margin-bottom: 1.5rem;
   padding-left: 1.75rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
 }
 
 .prose li {
