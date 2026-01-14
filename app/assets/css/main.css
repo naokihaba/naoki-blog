@@ -6,11 +6,11 @@
   --color-surface-elevated: #f1f5f9;
   --color-text-primary: #1e293b;
   --color-text-secondary: #64748b;
-  --color-accent: #10b981;
-  --color-accent-hover: #059669;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
   --color-border: #e2e8f0;
-  --color-gradient-from: #10b981;
-  --color-gradient-to: #14b8a6;
+  --color-gradient-from: #3b82f6;
+  --color-gradient-to: #0ea5e9;
   --color-code-bg: #f1f5f9;
 
   --container-max: 1400px;
@@ -46,11 +46,11 @@ ol {
   --color-surface-elevated: #334155;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #94a3b8;
-  --color-accent: #34d399;
-  --color-accent-hover: #6ee7b7;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
   --color-border: #334155;
-  --color-gradient-from: #34d399;
-  --color-gradient-to: #2dd4bf;
+  --color-gradient-from: #60a5fa;
+  --color-gradient-to: #38bdf8;
   --color-code-bg: #1e293b;
 }
 
