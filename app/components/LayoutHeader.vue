@@ -25,6 +25,17 @@ function toggleColorMode() {
           Home
         </NuxtLink>
 
+        <a
+          href="https://my-pull-requests.naoworks.workers.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="My Pull Requests"
+          class="transition-all hover:scale-110"
+          style="color: var(--color-text-secondary);"
+        >
+          <Icon name="lucide:git-pull-request" class="size-5" />
+        </a>
+
         <button
           type="button"
           aria-label="Toggle dark mode"
