@@ -1,6 +1,14 @@
-# Nuxt Content Starter
+# Naoki Haba's Portfolio & Blog
 
-Look at the [Nuxt Content documentation](https://content.nuxt.com) to learn more.
+Personal portfolio and blog built with Nuxt 4, featuring static site generation, content management, and modern web development practices.
+
+## Tech Stack
+
+- **Framework**: Nuxt 4
+- **Content**: @nuxt/content
+- **Styling**: TailwindCSS v4
+- **Deployment**: Netlify (Static Site Generation)
+- **Release Management**: changelogen
 
 ## Setup
 
@@ -73,3 +81,35 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Release Management
+
+This project uses [changelogen](https://github.com/unjs/changelogen) for automated changelog generation and releases.
+
+### Creating a Release
+
+Generate a changelog and create a git tag based on conventional commits:
+
+```bash
+# Patch release (1.0.0 -> 1.0.1)
+pnpm release:patch
+
+# Minor release (1.0.0 -> 1.1.0)
+pnpm release:minor
+
+# Major release (1.0.0 -> 2.0.0)
+pnpm release:major
+```
+
+### Commit Convention
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/) for automatic changelog generation:
+
+- `feat:` - New features (minor version bump)
+- `fix:` - Bug fixes (patch version bump)
+- `perf:` - Performance improvements
+- `refactor:` - Code refactoring
+- `docs:` - Documentation changes
+- `style:` - Code style changes
+- `test:` - Test additions or updates
+- `chore:` - Maintenance tasks

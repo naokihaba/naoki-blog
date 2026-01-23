@@ -1,12 +1,16 @@
 {
   "name": "naoki-blog",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "release:major": "pnpm dlx changelogen@latest --release --major",
+    "release:minor": "pnpm dlx changelogen@latest --release --minor",
+    "release:patch": "pnpm dlx changelogen@latest --release --patch"
   },
   "dependencies": {
     "@nuxt/a11y": "1.0.0-alpha.1",

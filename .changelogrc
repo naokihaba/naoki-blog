@@ -1,0 +1,15 @@
+{
+  "types": {
+    "feat": { "title": "🚀 Features" },
+    "fix": { "title": "🐛 Bug Fixes" },
+    "perf": { "title": "⚡ Performance" },
+    "refactor": { "title": "♻️ Refactor" },
+    "docs": { "title": "📖 Documentation" },
+    "style": { "title": "💄 Styling" },
+    "test": { "title": "✅ Tests" },
+    "chore": { "title": "🏡 Chore" }
+  },
+  "github": {
+    "repo": "naokihaba/naoki-blog"
+  }
+}
