@@ -1,0 +1,34 @@
+# mise configuration
+# https://mise.jdx.dev/
+
+[tools]
+node = "25.4.0"
+pnpm = "10.28.1"
+
+[tasks.dev]
+description = "Start development server"
+run = "nuxt dev"
+
+[tasks.build]
+description = "Build for production"
+run = "nuxt build"
+
+[tasks.generate]
+description = "Generate static site"
+run = "nuxt generate"
+
+[tasks.preview]
+description = "Preview production build"
+run = "nuxt preview"
+
+[tasks."release:major"]
+description = "Release major version"
+run = "pnpm dlx changelogen@latest --release --major"
+
+[tasks."release:minor"]
+description = "Release minor version"
+run = "pnpm dlx changelogen@latest --release --minor"
+
+[tasks."release:patch"]
+description = "Release patch version"
+run = "pnpm dlx changelogen@latest --release --patch"
