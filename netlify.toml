@@ -1,0 +1,9 @@
+[build]
+  command = "pnpm run generate"
+  publish = ".output/public"
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/200.html"
+  status = 200
