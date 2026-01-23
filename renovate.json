@@ -1,0 +1,38 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Group Nuxt related packages",
+      "groupName": "Nuxt",
+      "matchPackagePatterns": [
+        "^@nuxt/",
+        "^nuxt$",
+        "^@nuxtjs/"
+      ]
+    },
+    {
+      "description": "Group TailwindCSS related packages",
+      "groupName": "TailwindCSS",
+      "matchPackagePatterns": [
+        "^@tailwindcss/",
+        "^tailwindcss$"
+      ]
+    }
+  ],
+  "rangeStrategy": "pin",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 4am on monday"
+    ]
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "schedule": [
+    "before 4am on monday"
+  ]
+}
