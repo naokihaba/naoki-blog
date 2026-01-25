@@ -7,18 +7,18 @@
     {
       "description": "Group Nuxt related packages",
       "groupName": "Nuxt",
-      "matchPackagePatterns": [
-        "^@nuxt/",
-        "^nuxt$",
-        "^@nuxtjs/"
+      "matchPackageNames": [
+        "/^@nuxt//",
+        "/^nuxt$/",
+        "/^@nuxtjs//"
       ]
     },
     {
       "description": "Group TailwindCSS related packages",
       "groupName": "TailwindCSS",
-      "matchPackagePatterns": [
-        "^@tailwindcss/",
-        "^tailwindcss$"
+      "matchPackageNames": [
+        "/^@tailwindcss//",
+        "/^tailwindcss$/"
       ]
     }
   ],
